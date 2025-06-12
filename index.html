@@ -1,0 +1,25 @@
+<ul>
+    <li>
+        *ngFor="let item of items; let i = index"
+        //burda ngFor ile döngü oluşturuyoruz aslında react'teki map fonksiyonu gibi burda yapmak istediğimiz şey
+        // her bir item için döngü oluşturmak index ile birlikte
+        [ngClass]="{ active: i === selectedIndex }"
+
+        //burda ngClass ile i'nin selectedIndex ile eşit olup olmadığını kontrol ediyoruz
+        // eğer eşitse active sınıfını ekliyoruz click eventi ile 
+        // ngClass da react daki className gibi çalışıyor
+        (click)= "selectedIndex = i"
+        >
+        {{ item }}
+        // burda süslü parantez içinde item değerini yazdırıyoruz böylece her bir item'ı listeleyebiliyoruz
+    </li>
+</ul>
+
+// ts kısmı ****
+//items = ['İstanbul', 'Ankara', 'İzmir'];
+//burası da işte ts kısmındaki items dizi elemanları hepsi string tipinde
+
+
+//selectedIndex = 0;
+// burası da seçili olan indexi tutuyor yani hangi item'a tıklanmışsa onun indexini tutuyor
+// bu da ilk başta 0 olarak ayarlanmış yani ilk item seçili olacak
